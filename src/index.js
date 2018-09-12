@@ -1,7 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import {Provider} from 'react-redux';
+import {AppLoading} from 'expo';
+import {createDrawerNavigator, createStackNavigator} from 'react-navigation';
 import Store from './store';
+
+import {Home} from './templates/home';
+import {Settings} from './templates/settings';
 
 export default class Setup extends React.Component {
     constructor() {
@@ -21,21 +25,23 @@ export default class Setup extends React.Component {
     }
 
     render() {
-        return (
-            <View style={styles.container}>
-                <Text>Open22 up App.js to start working on your app!</Text>
-                <Text>Changes you make will automatically reload.</Text>
-                <Text>Shake your phone to open the developer menu.</Text>
-            </View>
-        );
+        if(this.state.isReady){
+            return (
+                <Provider store={Store}>
+                    <AppNavigator/>
+                </Provider>
+            );
+        }
+        return(<AppLoading/>);
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+const MainNavigator = createDrawerNavigator({
+        Home: {screen: Home},
+        Settings: {screen: Settings}
+    }
+);
+
+const AppNavigator = createStackNavigator({
+        Main: { screen: MainNavigator }
+    }, { headerMode: 'none' });
