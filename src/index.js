@@ -4,7 +4,7 @@ import {AppLoading} from 'expo';
 import {createDrawerNavigator, createStackNavigator} from 'react-navigation';
 import Store from './store';
 
-import {Home} from './templates/home';
+import {Home, Details} from './templates/home';
 import {Settings} from './templates/settings';
 
 export default class Setup extends React.Component {
@@ -38,6 +38,7 @@ export default class Setup extends React.Component {
 
 const MainNavigator = createDrawerNavigator({
         Home: {screen: Home},
+        Details: { screen: Details },
         Settings: {screen: Settings}
     }
 );
