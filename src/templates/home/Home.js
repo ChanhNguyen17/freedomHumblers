@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { TouchableOpacity } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Body, Text } from 'native-base';
+import {Container, Header, Content, Card, CardItem,
+    Body, Text, Left, Button, Icon, Title, Right} from 'native-base';
 
 import actions from '../../actions';
 
@@ -14,12 +15,24 @@ class Home extends React.Component {
         const { events } = this.props;
         return (
             <Container>
-                <Header />
+                <Header>
+                    <Left>
+                        <Button
+                            transparent
+                        >
+                            <Icon name="ios-menu" />
+                        </Button>
+                    </Left>
+                    <Body>
+                        <Title>Home</Title>
+                    </Body>
+                    <Right />
+                </Header>
                 <Content padder>
                     {events.map(event =>
                         <TouchableOpacity
                             key={event._id}
-                            onPress={() => this.props.navigation.navigate('Details', event)}
+                            onPress={() => this.props.navigation.navigate('Details', { event })}
                         >
                             <Card>
                                 <CardItem header bordered>

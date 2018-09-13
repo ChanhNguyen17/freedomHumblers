@@ -24,6 +24,10 @@ const fetchEvents = () => dispatch => {
         .catch((error) => console.log('fetchEvents failed', error));
 };
 
+const editEvent = (event) => dispatch => {
+
+};
+
 export {
     fetchEvents
 };
