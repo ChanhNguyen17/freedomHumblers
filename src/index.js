@@ -1,11 +1,10 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {AppLoading} from 'expo';
-import {createDrawerNavigator, createStackNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation';
 import Store from './store';
 
 import {Home, Details} from './templates/home';
-import {Settings} from './templates/settings';
 
 export default class Setup extends React.Component {
     constructor() {
@@ -36,13 +35,7 @@ export default class Setup extends React.Component {
     }
 }
 
-const MainNavigator = createDrawerNavigator({
-        Home: {screen: Home},
-        Details: { screen: Details },
-        Settings: {screen: Settings}
-    }
-);
-
 const AppNavigator = createStackNavigator({
-        Main: { screen: MainNavigator }
+    Home: { screen: Home },
+    Details: { screen: Details }
     }, { headerMode: 'none' });

@@ -1,31 +1,17 @@
+import axios from 'axios';
 import { API_URL } from '../config';
 import { FETCH_EVENTS } from './actionTypes';
 
-const requestGet = {
-    method: 'GET',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
-};
-
 // dispatcher
 const fetchEvents = () => dispatch => {
-    fetch(API_URL, requestGet)
+    axios.get(API_URL)
         .then((response) => {
-            return response.json();
-        })
-        .then((responseJson) => {
             dispatch({
                 type: FETCH_EVENTS,
-                payload: responseJson
+                payload: response.data
             });
         })
-        .catch((error) => console.log('fetchEvents failed', error));
-};
-
-const editEvent = (event) => dispatch => {
-
+        .catch(error => console.log('fetchEvents failed', error));
 };
 
 export {

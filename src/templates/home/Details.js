@@ -1,6 +1,8 @@
 import React from 'react';
-import {Container, Header, Content, Text, Left, Button,
-    Icon, Body, Title, Right, Item, Label, Form, Input} from 'native-base';
+import {
+    Container, Header, Content, Text, Left, Button,
+    Icon, Body, Title, Right, CardItem, Card
+} from 'native-base';
 
 class Details extends React.Component {
     constructor(props){
@@ -30,15 +32,16 @@ class Details extends React.Component {
                     <Right />
                 </Header>
                 <Content padder>
-                    <Form>
-                        <Item floatingLabel last>
-                            <Label>Name</Label>
-                            <Input value={ name } onChangeText={name => this.setState({ name })}/>
-                        </Item>
-                    </Form>
-                    <Button block style={{ margin: 15, marginTop: 50 }}>
-                        <Text>Edit</Text>
-                    </Button>
+                    <Card>
+                        <CardItem header bordered>
+                            <Text>{event.name}</Text>
+                        </CardItem>
+                        <CardItem>
+                            <Body>
+                            <Text>Event: {event.name}</Text>
+                            </Body>
+                        </CardItem>
+                    </Card>
                 </Content>
             </Container>
         );
