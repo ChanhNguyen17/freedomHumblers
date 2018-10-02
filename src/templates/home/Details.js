@@ -5,16 +5,8 @@ import {
 } from 'native-base';
 
 class Details extends React.Component {
-    constructor(props){
-        super(props);
-        const event = props.navigation.getParam('event');
-        this.state = {
-            event,
-            name: event.name
-        }
-    }
     render() {
-        const { event, name } = this.state;
+        const { name, short_description } = this.props.navigation.getParam('event');
         return (
             <Container>
                 <Header>
@@ -27,18 +19,18 @@ class Details extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                    <Title>{ event.name }</Title>
+                    <Title>{ name.en }</Title>
                     </Body>
                     <Right />
                 </Header>
                 <Content padder>
                     <Card>
                         <CardItem header bordered>
-                            <Text>{event.name}</Text>
+                            <Text>{name.en}</Text>
                         </CardItem>
                         <CardItem>
                             <Body>
-                            <Text>Event: {event.name}</Text>
+                            <Text>{short_description.en}</Text>
                             </Body>
                         </CardItem>
                     </Card>

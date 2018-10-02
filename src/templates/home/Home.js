@@ -31,16 +31,16 @@ class Home extends React.Component {
                 <Content padder>
                     {events.map(event =>
                         <TouchableOpacity
-                            key={event._id}
+                            key={event.id}
                             onPress={() => this.props.navigation.navigate('Details', { event })}
                         >
                             <Card>
                                 <CardItem header bordered>
-                                    <Text>{event.name}</Text>
+                                    <Text>{event.name.en}</Text>
                                 </CardItem>
                                 <CardItem>
                                     <Body>
-                                        <Text>Event: {event.name}</Text>
+                                        <Text>{event.short_description.en}</Text>
                                     </Body>
                                 </CardItem>
                             </Card>

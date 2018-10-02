@@ -6,6 +6,7 @@ import { FETCH_EVENTS } from './actionTypes';
 const fetchEvents = () => dispatch => {
     axios.get(API_URL)
         .then((response) => {
+            console.log('test---', response.data);
             dispatch({
                 type: FETCH_EVENTS,
                 payload: response.data
