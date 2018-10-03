@@ -40,7 +40,7 @@ class Home extends React.Component {
                                 </CardItem>
                                 <CardItem>
                                     <Body>
-                                        <Text>{event.short_description.en}</Text>
+                                        <Text>{event.description.en}</Text>
                                     </Body>
                                 </CardItem>
                             </Card>

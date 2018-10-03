@@ -6,7 +6,7 @@ import {
 
 class Details extends React.Component {
     render() {
-        const { name, short_description } = this.props.navigation.getParam('event');
+        const { name, description } = this.props.navigation.getParam('event');
         return (
             <Container>
                 <Header>
@@ -30,7 +30,7 @@ class Details extends React.Component {
                         </CardItem>
                         <CardItem>
                             <Body>
-                            <Text>{short_description.en}</Text>
+                            <Text>{description.en}</Text>
                             </Body>
                         </CardItem>
                     </Card>
