@@ -1,8 +1,7 @@
 import React from 'react';
 import {
     Container, Header, Content, Text, Left, Button,
-    Icon, Body, Title, Right, CardItem, Card
-} from 'native-base';
+    Icon, Body, Title, Right, CardItem, Card} from 'native-base';
 
 class Details extends React.Component {
     render() {

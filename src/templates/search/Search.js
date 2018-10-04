@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { TouchableOpacity } from 'react-native';
 import {Container, Header, Content, Card, CardItem,
-    Body, Text, Left, Button, Icon, Title, Right, View} from 'native-base';
+    Body, Text, Left, Button, Icon, Title, Right, TextInput} from 'native-base';
 
 import actions from '../../actions';
 
@@ -19,8 +19,9 @@ class Home extends React.Component {
                     <Left>
                         <Button
                             transparent
+                            onPress={() => this.props.navigation.goBack()}
                         >
-                            <Icon name="ios-menu" />
+                            <Icon name='arrow-back' />
                         </Button>
                     </Left>
                     <Body>
@@ -33,21 +34,13 @@ class Home extends React.Component {
           <Body>
             <Text>FreeVities</Text>
           </Body>
+
           <Button full rounded primary
             style={{ marginTop: 180 }}
             onPress={() => this.props.navigation.navigate("Search")}>
-            <Text>Search activities</Text>
+            <Text>Search</Text>
           </Button>
-          <Button full rounded primary
-            style={{ marginTop: 10 }}
-            onPress={() => this.props.navigation.navigate("Browse")}>
-            <Text>Browse activities</Text>
-          </Button>
-          <Button full rounded primary
-            style={{ marginTop: 10 }}
-            onPress={() => this.props.navigation.navigate("Third")}>
-            <Text>Maybe third here</Text>
-          </Button>
+
         </Content>
       </Container>
         );

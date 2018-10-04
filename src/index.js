@@ -4,7 +4,9 @@ import {AppLoading} from 'expo';
 import {createStackNavigator} from 'react-navigation';
 import Store from './store';
 
-import {Home, Details} from './templates/home';
+import {Home} from './templates/home';
+import {Browse, Details} from './templates/browse';
+import {Search} from './templates/search';
 
 export default class Setup extends React.Component {
     constructor() {
@@ -37,5 +39,7 @@ export default class Setup extends React.Component {
 
 const AppNavigator = createStackNavigator({
     Home: { screen: Home },
-    Details: { screen: Details }
+    Details: { screen: Details },
+    Browse: { screen: Browse },
+    Search: { screen: Search }
     }, { headerMode: 'none' });
