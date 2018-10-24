@@ -8,6 +8,7 @@ import {Home} from './templates/home';
 import {Browse, Details} from './templates/browse';
 import {Search} from './templates/search';
 
+
 export default class Setup extends React.Component {
     constructor() {
         super();

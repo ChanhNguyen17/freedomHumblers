@@ -1,11 +1,55 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, StyleSheet, Image } from 'react-native';
 import {Container, Header, Content, Card, CardItem,
     Body, Text, Left, Button, Icon, Title, Right, View} from 'native-base';
 
 import actions from '../../actions';
+import { colors, padding, fonts } from '../../styles/baseStyles.js'
+
+
+const styles = StyleSheet.create({
+
+//Home page image size
+  imageSize: {
+    width: 200,
+    height: 200
+  },
+//Text color
+  topBarTextColor: {
+    color: colors.orange
+  },
+//Top bar color
+  topBar: {
+    backgroundColor: colors.topBar
+  },
+//Body background color
+  bodyBackground: {
+    backgroundColor: colors.appBackground
+  },
+//Styles for buttons
+  buttons: {
+    backgroundColor: colors.orange,
+    marginTop: padding.md
+  },
+//Styles for centering elements
+  centering: {
+    //backgroundColor: "#A1A1A1",
+    //flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+    //paddingLeft: padding.md
+  },
+//Buttons are inside view, for now, need to find best practises
+  viewForButtons: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: padding.md
+  }
+})
+
 
 class Home extends React.Component {
     componentDidMount(){
@@ -15,44 +59,83 @@ class Home extends React.Component {
 
         return (
             <Container>
-                <Header>
+                <Header
+                style= { [ styles.topBar ] }
+                >
                     <Left>
                         <Button
                             transparent
                         >
-                            <Icon name="ios-menu" />
+                            <Icon style= { [ styles.topBarTextColor ] } name="ios-menu" />
                         </Button>
+
                     </Left>
-                    <Body>
-                        <Title>FreeVities</Title>
+                    <Body
+                    style= { [ styles.centering ] }
+                    >
+                        <Title
+                            style= { [ styles.topBarTextColor ] }
+                        >Frivities</Title>
                     </Body>
+
                     <Right>
                     </Right>
                 </Header>
-        <Content padder>
-          <Body>
-            <Text>FreeVities</Text>
+        <Content padder
+        style={ [styles.bodyBackground] }
+        >
+          <Body
+
+          >
+
+          <Image
+          style = { [ styles.imageSize ] }
+
+            //Home page image, this is just a test image for now.
+            //PLACEHOLDER
+            source={require('../../styles/img/homeImage.png')}
+          />
+            <Text
+                style= { [ styles.topBarTextColor ] }
+            >"Feel Free 'n' Get Going"</Text>
           </Body>
-          <Button full rounded primary
-            style={{ marginTop: 180 }}
-            onPress={() => this.props.navigation.navigate("Search")}>
-            <Text>Search activities</Text>
-          </Button>
-          <Button full rounded primary
-            style={{ marginTop: 10 }}
-            onPress={() => this.props.navigation.navigate("Browse")}>
-            <Text>Browse activities</Text>
-          </Button>
-          <Button full rounded primary
-            style={{ marginTop: 10 }}
+          <View
+            style={ [ styles.viewForButtons ] }
+          >
+          <View
+            style={ [ styles.centering ] }
+          >
+              <Button
+                style={ [styles.buttons, { /**marginTop: padding.homeTopButton**/ }] }
+                onPress={() => this.props.navigation.navigate("Search")}>
+                <Text>Search activities</Text>
+              </Button>
+          </View>
+          <View
+            style={ [ styles.centering ] }
+          >
+              <Button
+                style={ [styles.buttons] }
+                onPress={() => this.props.navigation.navigate("Browse")}>
+                <Text>Browse activities</Text>
+              </Button>
+          </View>
+          <View
+            style={ [ styles.centering ] }
+          >
+          <Button
+            style={ [styles.buttons] }
             onPress={() => this.props.navigation.navigate("Third")}>
             <Text>Maybe third here</Text>
           </Button>
+          </View>
+          </View>
         </Content>
       </Container>
         );
     }
 }
+
 
 // Redux configuration
 const mapStateToProps = ({ events }) => ({ events });
