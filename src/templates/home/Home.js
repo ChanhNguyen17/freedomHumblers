@@ -20,6 +20,17 @@ const styles = StyleSheet.create({
   topBarTextColor: {
     color: colors.orange
   },
+//Slogan styles
+  sloganText: {
+    color: colors.orange,
+    //borderRadius: 12,
+    //borderWidth: 1,
+    borderColor: colors.black,
+    textShadowColor: 'rgba(0, 0, 0, 1)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 15
+  },
+
 //Top bar color
   topBar: {
     backgroundColor: colors.topBar
@@ -96,7 +107,7 @@ class Home extends React.Component {
             source={require('../../styles/img/homeImage.png')}
           />
             <Text
-                style= { [ styles.topBarTextColor ] }
+                style= { [ styles.sloganText ] } //styles.sloganText
             >"Feel Free 'n' Get Going"</Text>
           </Body>
           <View

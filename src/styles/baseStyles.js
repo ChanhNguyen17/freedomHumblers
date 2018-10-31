@@ -17,8 +17,11 @@ export const colors  = {
   topBar: "#3377ff",
   //"#e42700",
   //"#FF4500",
-  appBackground: "#80aaff"
+  appBackground: "#80aaff",
+  black: "#000000"
   //"#483d8b"
+
+
 }
 
 export const padding = {
