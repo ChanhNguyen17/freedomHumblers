@@ -40,10 +40,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingLeft: padding.md
   }
-})
-
-
-
+});
 
 class Home extends React.Component {
     componentDidMount(){

@@ -6,7 +6,7 @@ import {Container, Header, Content, Card, CardItem,
     Body, Text, Left, Button, Icon, Title, Right, View} from 'native-base';
 
 import actions from '../../actions';
-import { colors, padding, fonts } from '../../styles/baseStyles.js'
+import { colors, padding, fonts } from '../../styles/baseStyles';
 
 const styles = StyleSheet.create({
 
@@ -22,8 +22,7 @@ const styles = StyleSheet.create({
   bodyBackground: {
     backgroundColor: colors.appBackground
   }
-
-})
+});
 
 
 class Browse extends React.Component {

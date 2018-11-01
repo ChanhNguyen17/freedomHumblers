@@ -1,16 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { TouchableOpacity, StyleSheet, Image } from 'react-native';
-import {Container, Header, Content, Card, CardItem,
+import { StyleSheet, Image } from 'react-native';
+import {Container, Header, Content,
     Body, Text, Left, Button, Icon, Title, Right, View} from 'native-base';
-
-import actions from '../../actions';
-import { colors, padding, fonts } from '../../styles/baseStyles.js'
-
+import { colors, padding } from '../../styles/baseStyles';
 
 const styles = StyleSheet.create({
-
 //Home page image size
   imageSize: {
     width: 200,
@@ -59,15 +53,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingLeft: padding.md
   }
-})
+});
 
-
-class Home extends React.Component {
-    componentDidMount(){
-        this.props.fetchEvents();
-    }
+export default class Home extends React.Component {
     render() {
-
         return (
             <Container>
                 <Header
@@ -95,10 +84,7 @@ class Home extends React.Component {
         <Content padder
         style={ [styles.bodyBackground] }
         >
-          <Body
-
-          >
-
+          <Body>
           <Image
           style = { [ styles.imageSize ] }
 
@@ -146,14 +132,3 @@ class Home extends React.Component {
         );
     }
 }
-
-
-// Redux configuration
-const mapStateToProps = ({ events }) => ({ events });
-
-const mapDispatchToProps = dispatch => {
-    const { fetchEvents } = actions.eventAction;
-    return bindActionCreators({ fetchEvents }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);

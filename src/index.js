@@ -43,4 +43,4 @@ const AppNavigator = createStackNavigator({
     Details: { screen: Details },
     Browse: { screen: Browse },
     Search: { screen: Search }
-    }, { headerMode: 'none' });
+}, { headerMode: 'none' });

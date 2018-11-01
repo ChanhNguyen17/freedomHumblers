@@ -1,5 +1,7 @@
 const initialEvents = [];
+const initialPlaces = [];
 
 export default {
-    events: initialEvents
+    events: initialEvents,
+    places: initialPlaces
 };
