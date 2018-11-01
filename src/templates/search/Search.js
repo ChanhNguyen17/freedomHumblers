@@ -42,12 +42,12 @@ const styles = StyleSheet.create({
   }
 });
 
-class Home extends React.Component {
-    componentDidMount(){
-        this.props.fetchEvents();
+class Search extends React.Component {
+    componentWillMount(){
+        this.props.fetchPlaces();
     }
     render() {
-
+        const { places } = this.props;
         return (
             <Container>
                 <Header style= { [ styles.topBar ] } >
@@ -60,36 +60,32 @@ class Home extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title style= { [ styles.topBarTextColor ] } >Search</Title>
+                        <Title style= { [ styles.topBarTextColor ] }>Search</Title>
                     </Body>
                     <Right>
                     </Right>
                 </Header>
         <Content padder style={ [styles.bodyBackground] }>
           <Body>
-            <Text>Use a keyword to search activities</Text>
+            <Text>Search activities by places</Text>
           </Body>
-          <View
-            style={ [ styles.viewForButtons ] }
-          >
-          <View
-            style={ [ styles.centering ] }
-          >
-            <TextInput
-            //style = {styles.input}
-               underlineColorAndroid = "transparent"
-               placeholder = "keyword"
-
-               autoCapitalize = "none"
-               //onChangeText = {this.handleSearch}
-               />
-              <Button
-                style={ [styles.buttons] }
-                onPress={() => this.props.navigation.navigate("Search")}>
-                <Text>Search</Text>
-              </Button>
-          </View>
-          </View>
+            {places.map(place =>
+                <TouchableOpacity
+                    key={place.id}
+                    onPress={() => {
+                        this.props.fetchEvents(place.id);
+                        this.props.navigation.goBack();
+                    }}
+                >
+                    <Card>
+                        <CardItem>
+                            <Body>
+                                <Text>{place.divisions.filter(({ type }) => type === 'sub_district')[0].name.fi}</Text>
+                            </Body>
+                        </CardItem>
+                    </Card>
+                </TouchableOpacity>
+            )}
         </Content>
       </Container>
         );
@@ -97,11 +93,12 @@ class Home extends React.Component {
 }
 
 // Redux configuration
-const mapStateToProps = ({ events }) => ({ events });
+const mapStateToProps = ({ places }) => ({ places });
 
 const mapDispatchToProps = dispatch => {
+    const { fetchPlaces } = actions.placeAction;
     const { fetchEvents } = actions.eventAction;
-    return bindActionCreators({ fetchEvents }, dispatch);
+    return bindActionCreators({ fetchEvents, fetchPlaces }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

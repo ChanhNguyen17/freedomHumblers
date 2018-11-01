@@ -103,15 +103,6 @@ export default class Home extends React.Component {
             style={ [ styles.centering ] }
           >
               <Button
-                style={ [styles.buttons, { /**marginTop: padding.homeTopButton**/ }] }
-                onPress={() => this.props.navigation.navigate("Search")}>
-                <Text>Search activities</Text>
-              </Button>
-          </View>
-          <View
-            style={ [ styles.centering ] }
-          >
-              <Button
                 style={ [styles.buttons] }
                 onPress={() => this.props.navigation.navigate("Browse")}>
                 <Text>Browse activities</Text>

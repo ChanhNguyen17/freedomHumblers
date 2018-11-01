@@ -3,8 +3,8 @@ import { EVENT_URL } from '../config';
 import { FETCH_EVENTS } from './actionTypes';
 
 // dispatcher
-const fetchEvents = () => dispatch => {
-    axios.get(EVENT_URL)
+const fetchEvents = (place = '') => dispatch => {
+    axios.get(EVENT_URL+'&location='+place)
         .then((response) => {
             dispatch({
                 type: FETCH_EVENTS,

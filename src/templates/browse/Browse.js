@@ -49,7 +49,14 @@ class Browse extends React.Component {
                         style= { [ styles.topBarTextColor ] }
                         >Browse</Title>
                     </Body>
-                    <Right />
+                    <Right>
+                        <Button
+                            transparent
+                            onPress={() => this.props.navigation.navigate('Search')}
+                        >
+                            <Icon style= { [ styles.topBarTextColor ] } name='ios-search' />
+                        </Button>
+                    </Right>
                 </Header>
                 <Content padder
                 style={ [styles.bodyBackground] }
