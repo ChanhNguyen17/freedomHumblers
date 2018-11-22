@@ -75,6 +75,9 @@ class Search extends React.Component {
                     key={place.id}
                     onPress={() => {
                         this.props.fetchEvents(place.id);
+                        this.props.navigation.state.params.setPlace(
+                            place.divisions.filter(({ type }) => type === 'sub_district')[0].name.fi
+                        );
                         this.props.navigation.goBack();
                     }}
                 >
