@@ -37,14 +37,14 @@ class Details extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                    <Title style= { [ styles.topBarTextColor ] }>{ name.en }</Title>
+                    <Title style= { [ styles.topBarTextColor ] }>{ name.en || name.fi || 'No name' }</Title>
                     </Body>
                     <Right />
                 </Header>
                 <Content padder>
                     <Card>
                         <CardItem header bordered style= { [ styles.topBar ] }>
-                            <Text style= { [ styles.topBarTextColor ] }>{name.en}</Text>
+                            <Text style= { [ styles.topBarTextColor ] }>{name.en || name.fi || 'No name'}</Text>
                         </CardItem>
                         {/*<CardItem cardBody>
                             <Image source={ images[0].url ? {uri: images[0].url} : require('../../styles/img/placeholder.png'  ) }
@@ -53,7 +53,7 @@ class Details extends React.Component {
                         */}
                         <CardItem>
                             <Body>
-                                <Text>{description.en}</Text>
+                                <Text>{description.en || description.fi || 'No description'}</Text>
                             </Body>
                         </CardItem>
                     </Card>

@@ -73,11 +73,11 @@ class Browse extends React.Component {
                                 >
                                     <Text
                                     style= { [ styles.topBarTextColor ] }
-                                    >{event.name.en}</Text>
+                                    >{event.name.en || event.name.fi || 'No name'}</Text>
                                 </CardItem>
                                 <CardItem>
                                     <Body>
-                                        <Text numberOfLines={5}>{event.description.en}</Text>
+                                        <Text numberOfLines={5}>{event.description.en || event.description.fi || 'No description'}</Text>
                                     </Body>
                                 </CardItem>
                             </Card>

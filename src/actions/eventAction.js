@@ -6,14 +6,12 @@ import { FETCH_EVENTS } from './actionTypes';
 const fetchEvents = (place = '', page = 1) => dispatch => {
     axios.get(EVENT_URL+'?location='+place+'&page='+page)
         .then((response) => {
-        	console.log(page);
         	dispatch({
                 type: FETCH_EVENTS,
-                payload: response.data
+                payload: response.data,
+                page
             });
-        	//if(response.meta.next != null) {
-        		fetchEvents(place, page + 1)(dispatch);
-        	//}
+            dispatch(fetchEvents(place, page + 1));
         })
         .catch(error => console.log('fetchEvents failed', error));
 };

@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
 //Top bar color
   topBar: {
-    backgroundColor: colors.topBar
+    //backgroundColor: colors.topBar
   },
 //Body background color
   bodyBackground: {
