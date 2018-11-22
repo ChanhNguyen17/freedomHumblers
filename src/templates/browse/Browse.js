@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
 
 
 class Browse extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { place: 'All' };
+    }
     componentDidMount(){
         this.props.fetchEvents();
     }
@@ -48,12 +52,14 @@ class Browse extends React.Component {
                     <Body>
                         <Title
                         style= { [ styles.topBarTextColor ] }
-                        >Browse</Title>
+                        >Browse {this.state.place}</Title>
                     </Body>
                     <Right>
                         <Button
                             transparent
-                            onPress={() => this.props.navigation.navigate('Search')}
+                            onPress={() => this.props.navigation.navigate('Search', {
+                                setPlace: place => this.setState({ place })
+                            })}
                         >
                             <Icon style= { [ styles.topBarTextColor ] } name='ios-search' />
                         </Button>
