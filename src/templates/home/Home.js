@@ -1,14 +1,21 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, ImageBackground } from 'react-native';
 import {Container, Header, Content,
     Body, Text, Left, Button, Icon, Title, Right, View} from 'native-base';
 import { colors, padding } from '../../styles/baseStyles';
 
 const styles = StyleSheet.create({
+
+  homeBackgroundImage: {
+      flex: 1,
+      width: null,
+      height: null
+      //resizeMode: 'cover'
+  },
 //Home page image size
   imageSize: {
-    width: 200,
-    height: 200
+    width: 180,
+    height: 120
   },
 //Text color
   topBarTextColor: {
@@ -31,7 +38,7 @@ const styles = StyleSheet.create({
   },
 //Body background color
   bodyBackground: {
-    backgroundColor: colors.appBackground
+    //backgroundColor: colors.appBackground
   },
 //Styles for buttons
   buttons: {
@@ -58,6 +65,8 @@ const styles = StyleSheet.create({
 export default class Home extends React.Component {
     render() {
         return (
+          <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
+            
             <Container>
                 <Header
                 style= { [ styles.topBar ] }
@@ -81,26 +90,27 @@ export default class Home extends React.Component {
                     <Right>
                     </Right>
                 </Header>
-        <Content padder
+
+
+
+        <Content padder 
         style={ [styles.bodyBackground] }
         >
           <Body>
-          <Image
-          style = { [ styles.imageSize ] }
-
-            //Home page image, this is just a test image for now.
-            //PLACEHOLDER
-            source={require('../../styles/img/homeImage.png')}
-          />
+            <Image style= {[ styles.imageSize ]} source={require('../../styles/img/frivities_logo.png')} />
             <Text
                 style= { [ styles.sloganText ] } //styles.sloganText
             >"Feel Free 'n' Get Going"</Text>
+
+            <Text
+                style= { [ styles.sloganText ] } //styles.sloganText
+            >ALL IS FREE, WOOOOOOOOO!!!</Text>
           </Body>
           <View
             style={ [ styles.viewForButtons ] }
           >
           <View
-            style={ [ styles.centering ] }
+            style={ [ styles.centering, { marginTop: 40 } ] }
           >
               <Button
                 style={ [styles.buttons] }
@@ -108,18 +118,13 @@ export default class Home extends React.Component {
                 <Text>Browse activities</Text>
               </Button>
           </View>
-          <View
-            style={ [ styles.centering ] }
-          >
-          <Button
-            style={ [styles.buttons] }
-            onPress={() => this.props.navigation.navigate("Third")}>
-            <Text>Maybe third here</Text>
-          </Button>
-          </View>
+
           </View>
         </Content>
       </Container>
+
+
+      </ImageBackground>
         );
     }
 }

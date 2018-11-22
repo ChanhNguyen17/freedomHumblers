@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { TouchableOpacity, StyleSheet, TextInput } from 'react-native';
+import { TouchableOpacity, StyleSheet, TextInput, ImageBackground, Image } from 'react-native';
 import {Container, Header, Content, Card, CardItem,
     Body, Text, Left, Button, Icon, Title, Right, View} from 'native-base';
 
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
 //Body background color
   bodyBackground: {
-    backgroundColor: colors.appBackground
+    //backgroundColor: colors.appBackground
   },
 //Text color
   topBarTextColor: {
@@ -49,6 +49,7 @@ class Search extends React.Component {
     render() {
         const { places } = this.props;
         return (
+        <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
             <Container>
                 <Header style= { [ styles.topBar ] } >
                     <Left>
@@ -74,13 +75,19 @@ class Search extends React.Component {
                     key={place.id}
                     onPress={() => {
                         this.props.fetchEvents(place.id);
+
                         this.props.navigation.goBack();
                     }}
                 >
                     <Card>
                         <CardItem>
                             <Body>
-                                <Text>{place.divisions.filter(({ type }) => type === 'sub_district')[0].name.fi}</Text>
+                            {/* 
+                                <Text> {place.divisions[place.divisions.length-1].name.fi} </Text>
+                            */}
+                               
+                            <Text>{place.divisions.filter(({ type }) => type === 'sub_district')[0].name.fi}</Text>
+
                             </Body>
                         </CardItem>
                     </Card>
@@ -88,6 +95,7 @@ class Search extends React.Component {
             )}
         </Content>
       </Container>
+  </ImageBackground>
         );
     }
 }

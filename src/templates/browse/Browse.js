@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
 import {Container, Header, Content, Card, CardItem,
     Body, Text, Left, Button, Icon, Title, Right, View} from 'native-base';
 
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
 //Body background color
   bodyBackground: {
-    backgroundColor: colors.appBackground
+    //backgroundColor: colors.appBackground
   }
 });
 
@@ -32,6 +32,7 @@ class Browse extends React.Component {
     render() {
         const { events } = this.props;
         return (
+            <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
             <Container>
                 <Header
                 style= { [ styles.topBar ] }
@@ -76,7 +77,7 @@ class Browse extends React.Component {
                                 </CardItem>
                                 <CardItem>
                                     <Body>
-                                        <Text>{event.description.en}</Text>
+                                        <Text numberOfLines={5}>{event.description.en}</Text>
                                     </Body>
                                 </CardItem>
                             </Card>
@@ -84,6 +85,7 @@ class Browse extends React.Component {
                     )}
                 </Content>
             </Container>
+            </ImageBackground>
         );
     }
 }
