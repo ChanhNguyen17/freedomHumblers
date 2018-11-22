@@ -75,17 +75,16 @@ class Search extends React.Component {
                     key={place.id}
                     onPress={() => {
                         this.props.fetchEvents(place.id);
-
                         this.props.navigation.goBack();
                     }}
                 >
                     <Card>
                         <CardItem>
                             <Body>
-                            {/* 
+                            {/*
                                 <Text> {place.divisions[place.divisions.length-1].name.fi} </Text>
                             */}
-                               
+
                             <Text>{place.divisions.filter(({ type }) => type === 'sub_district')[0].name.fi}</Text>
 
                             </Body>
