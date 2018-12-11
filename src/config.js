@@ -4,8 +4,8 @@ const BASE_URL = 'https://linkedcourses-api.test.hel.ninja/linkedcourses-test/v1
 
 //const BASE_URL = 'http://api.hel.fi/linkedevents/v1/';
 
-//export const EVENT_URL = BASE_URL + '/event/?data_source=metropolia_team_freedom';
-export const EVENT_URL = BASE_URL + '/event/';
+export const EVENT_URL = BASE_URL + '/event/?data_source=metropolia_team_freedom';
+// export const EVENT_URL = BASE_URL + '/event/';
 
 
 //export const EVENT_URL = BASE_URL + '/event/?division=pasila';

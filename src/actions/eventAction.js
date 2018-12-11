@@ -4,7 +4,7 @@ import { FETCH_EVENTS } from './actionTypes';
 
 // dispatcher
 const fetchEvents = (place = '', page = 1) => dispatch => {
-    axios.get(EVENT_URL+'?location='+place+'&page='+page)
+    axios.get(EVENT_URL+'&location='+place+'&page='+page)
         .then((response) => {
         	dispatch({
                 type: FETCH_EVENTS,
