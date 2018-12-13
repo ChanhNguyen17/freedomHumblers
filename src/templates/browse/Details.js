@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   }
 });
 
+// show details of the event
 class Details extends React.Component {
     render() {
         const { name, description, images } = this.props.navigation.getParam('event');

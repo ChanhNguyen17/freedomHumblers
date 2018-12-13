@@ -96,7 +96,7 @@ class Browse extends React.Component {
     }
 }
 
-// Redux configuration
+// Redux configuration mapStateToProps and mapDispatchToProps
 const mapStateToProps = ({ events }) => ({ events });
 
 const mapDispatchToProps = dispatch => {
@@ -104,4 +104,5 @@ const mapDispatchToProps = dispatch => {
     return bindActionCreators({ fetchEvents }, dispatch);
 };
 
+// connect redux to component
 export default connect(mapStateToProps, mapDispatchToProps)(Browse);

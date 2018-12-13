@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
   }
 });
 
+// home page
 export default class Home extends React.Component {
     render() {
         return (
           <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
-            
             <Container>
                 <Header
                 style= { [ styles.topBar ] }
@@ -93,7 +93,7 @@ export default class Home extends React.Component {
 
 
 
-        <Content padder 
+        <Content padder
         style={ [styles.bodyBackground] }
         >
           <Body>
@@ -122,8 +122,6 @@ export default class Home extends React.Component {
           </View>
         </Content>
       </Container>
-
-
       </ImageBackground>
         );
     }

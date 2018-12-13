@@ -74,6 +74,7 @@ class Search extends React.Component {
                 <TouchableOpacity
                     key={place.id}
                     onPress={() => {
+                        // fetch events by place and navigate back to browse page
                         this.props.fetchEvents(place.id);
                         this.props.navigation.state.params.setPlace(
                             place.divisions.filter(({ type }) => type === 'sub_district')[0].name.fi
@@ -99,7 +100,7 @@ class Search extends React.Component {
     }
 }
 
-// Redux configuration
+// Redux configuration mapStateToProps and mapDispatchToProps
 const mapStateToProps = ({ places }) => ({ places });
 
 const mapDispatchToProps = dispatch => {
@@ -108,4 +109,5 @@ const mapDispatchToProps = dispatch => {
     return bindActionCreators({ fetchEvents, fetchPlaces }, dispatch);
 };
 
+// connect redux to component
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

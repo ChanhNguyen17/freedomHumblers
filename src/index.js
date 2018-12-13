@@ -17,6 +17,7 @@ export default class Setup extends React.Component {
         };
     }
 
+    // load the requirement fonts
     async componentWillMount() {
         await Expo.Font.loadAsync({
             'Roboto': require('native-base/Fonts/Roboto.ttf'),
@@ -38,6 +39,7 @@ export default class Setup extends React.Component {
     }
 }
 
+// app navigator between home, details, browse, search
 const AppNavigator = createStackNavigator({
     Home: { screen: Home },
     Details: { screen: Details },

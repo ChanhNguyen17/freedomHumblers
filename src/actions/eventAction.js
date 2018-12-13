@@ -3,6 +3,7 @@ import { EVENT_URL } from '../config';
 import { FETCH_EVENTS } from './actionTypes';
 
 // dispatcher
+// Fetch the events from open api filter by location and page
 const fetchEvents = (place = '', page = 1) => dispatch => {
     axios.get(EVENT_URL+'&location='+place+'&page='+page)
         .then((response) => {
