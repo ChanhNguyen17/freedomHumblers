@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
 import {Container, Header, Content, Card, CardItem,
     Body, Text, Left, Button, Icon, Title, Right, View} from 'native-base';
+import get from 'lodash/get';
 
 import actions from '../../actions';
 import { colors, padding, fonts } from '../../styles/baseStyles';
@@ -36,8 +37,8 @@ class Browse extends React.Component {
     render() {
         const { events } = this.props;
         return (
-            <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
             <Container>
+            <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
                 <Header
                 style= { [ styles.topBar ] }
                 >
@@ -79,19 +80,19 @@ class Browse extends React.Component {
                                 >
                                     <Text
                                     style= { [ styles.topBarTextColor ] }
-                                    >{event.name.en || event.name.fi || 'No name'}</Text>
+                                    >{get(event.name, 'en') || get(event.name, 'fi') || 'No name'}</Text>
                                 </CardItem>
                                 <CardItem>
                                     <Body>
-                                        <Text numberOfLines={5}>{event.description.en || event.description.fi || 'No description'}</Text>
+                                        <Text numberOfLines={5}>{get(event.description, 'en') || get(event.description, 'fi') || 'No description'}</Text>
                                     </Body>
                                 </CardItem>
                             </Card>
                         </TouchableOpacity>
                     )}
                 </Content>
-            </Container>
             </ImageBackground>
+            </Container>
         );
     }
 }

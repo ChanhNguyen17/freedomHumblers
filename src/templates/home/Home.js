@@ -66,8 +66,11 @@ const styles = StyleSheet.create({
 export default class Home extends React.Component {
     render() {
         return (
-          <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
             <Container>
+            <ImageBackground
+              source={require('../../styles/img/bg_keski.jpg')}
+              style={{width: '100%', height: '100%', flex: 1}}
+          >
                 <Header
                 style= { [ styles.topBar ] }
                 >
@@ -90,9 +93,6 @@ export default class Home extends React.Component {
                     <Right>
                     </Right>
                 </Header>
-
-
-
         <Content padder
         style={ [styles.bodyBackground] }
         >
@@ -121,8 +121,8 @@ export default class Home extends React.Component {
 
           </View>
         </Content>
-      </Container>
       </ImageBackground>
-        );
+    </Container>
+    );
     }
 }

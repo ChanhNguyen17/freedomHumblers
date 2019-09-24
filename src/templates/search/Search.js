@@ -49,8 +49,8 @@ class Search extends React.Component {
     render() {
         const { places } = this.props;
         return (
-        <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
             <Container>
+            <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
                 <Header style= { [ styles.topBar ] } >
                     <Left>
                         <Button
@@ -94,8 +94,8 @@ class Search extends React.Component {
                 </TouchableOpacity>
             )}
         </Content>
-      </Container>
   </ImageBackground>
+            </Container>
         );
     }
 }

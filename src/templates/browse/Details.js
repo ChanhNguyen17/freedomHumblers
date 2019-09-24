@@ -3,7 +3,7 @@ import {
     Container, Header, Content, Text, Left, Button,
     Icon, Body, Title, Right, CardItem, Card} from 'native-base';
 import { StyleSheet, Image, ImageBackground } from 'react-native';
-
+import get from 'lodash/get';
 
 import { colors, padding, fonts } from '../../styles/baseStyles';
 
@@ -24,8 +24,8 @@ class Details extends React.Component {
     render() {
         const { name, description, images } = this.props.navigation.getParam('event');
         return (
-        <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
             <Container>
+            <ImageBackground source={require('../../styles/img/bg_keski.jpg')} style={{width: '100%', height: '100%'}}>
                 <Header
                 style= { [ styles.topBar ] }
                 >
@@ -45,7 +45,7 @@ class Details extends React.Component {
                 <Content padder>
                     <Card>
                         <CardItem header bordered style= { [ styles.topBar ] }>
-                            <Text style= { [ styles.topBarTextColor ] }>{name.en || name.fi || 'No name'}</Text>
+                            <Text style= { [ styles.topBarTextColor ] }>{get(name, 'en') || get(name, 'fi') || 'No name'}</Text>
                         </CardItem>
                         {/*<CardItem cardBody>
                             <Image source={ images[0].url ? {uri: images[0].url} : require('../../styles/img/placeholder.png'  ) }
@@ -54,14 +54,13 @@ class Details extends React.Component {
                         */}
                         <CardItem>
                             <Body>
-                                <Text>{description.en || description.fi || 'No description'}</Text>
+                                <Text>{get(description, 'en') || get(description, 'fi') || 'No description'}</Text>
                             </Body>
                         </CardItem>
                     </Card>
                 </Content>
-            </Container>
         </ImageBackground>
-
+            </Container>
         );
     }
 }
