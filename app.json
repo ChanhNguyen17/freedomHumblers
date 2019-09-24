@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Test app",
-    "slug": "test-app",
+    "name": "Frivities",
+    "slug": "frivities",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -11,9 +11,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/styles/img/placeholder.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./src/styles/img/placeholder.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
